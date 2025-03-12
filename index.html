@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>247 Space Coins | To The Stars</title>
+  <link rel='stylesheet' type='text/css' media='screen' href='./assets/css/index.css'>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+
+  <style>
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    @keyframes pulse {
+      0% { opacity: 0.7; }
+      50% { opacity: 1; }
+      100% { opacity: 0.7; }
+    }
+    
+    @keyframes startwinkle {
+      0% { opacity: 0.1; }
+      50% { opacity: 0.8; }
+      100% { opacity: 0.1; }
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .space-bg {
+      background: linear-gradient(to bottom, #000000, #0a0a2a, #000000);
+      position: relative;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: #fff;
+      border-radius: 50%;
+      animation: startwinkle 5s infinite;
+    }
+
+    .star:nth-child(3n) {
+      width: 3px;
+      height: 3px;
+      animation-delay: 2s;
+    }
+
+    .star:nth-child(5n) {
+      width: 1px;
+      height: 1px;
+      animation-delay: 3s;
+    }
+
+    .meteor {
+      position: absolute;
+      width: 50px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #fff, transparent);
+      transform: rotate(-45deg);
+      opacity: 0;
+    }
+
+    .cosmic-gradient {
+      background: linear-gradient(90deg, #6200EA, #AA00FF, #00B0FF);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .cosmic-card {
+      background: rgba(10, 10, 40, 0.5);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .cosmic-card:hover {
+      box-shadow: 0 0 25px rgba(98, 0, 234, 0.5);
+    }
+
+    .cosmic-btn {
+      background: linear-gradient(90deg, #6200EA, #AA00FF);
+      transition: all 0.3s ease;
+    }
+
+    .cosmic-btn:hover {
+      box-shadow: 0 0 15px rgba(98, 0, 234, 0.7);
+      transform: translateY(-2px);
+    }
+
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .pulse {
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    .tokenomics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    /* Planet */
+    .planet {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #6200EA, #AA00FF);
+      box-shadow: 0 0 50px rgba(98, 0, 234, 0.8);
+      position: relative;
+    }
+
+    .planet::after {
+      content: '';
+      position: absolute;
+      width: 160px;
+      height: 20px;
+      background: rgba(98, 0, 234, 0.3);
+      border-radius: 50%;
+      top: 50%;
+      left: -5px;
+      transform: rotateX(80deg);
+    }
+
+    .token-chart {
+      width: 100%;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+
+    .token-fill {
+      height: 100%;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="space-bg min-h-screen w-full relative overflow-hidden">
+    <!-- Stars -->
+    <div id="stars-container"></div>
+
+    <!-- Header -->
+    <header class="container mx-auto py-6 px-4 relative z-10">
+      <div class="flex justify-between items-center">
+        <div class="text-3xl font-bold cosmic-gradient">247 Space Coins</div>
+        <nav class="hidden md:flex space-x-6">
+          <a href="#tokenomics" class="hover:text-purple-400 transition">Tokenomics</a>
+          <a href="#milestones" class="hover:text-purple-400 transition">Milestones</a>
+          <a href="#roadmap" class="hover:text-purple-400 transition">Roadmap</a>
+          <a href="#community" class="hover:text-purple-400 transition">Community</a>
+        </nav>
+        <button class="cosmic-btn px-6 py-2 rounded-full font-bold">Join our Community</button>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="container mx-auto py-24 px-4 relative z-10">
+      <div class="flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-10 md:mb-0">
+          <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight cosmic-gradient">
+            247 Space Coins<br>
+          </h1>
+          <p class="text-xl md:text-2xl mb-8 text-gray-300">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam praesentium et ratione 
+              
+          </p>
+          <div class="flex space-x-4">
+            <button class="cosmic-btn px-8 py-4 rounded-full font-bold">Buy Tokens</button>
+            <button class="bg-transparent border border-purple-500 px-8 py-4 rounded-full font-bold hover:bg-purple-900 transition">
+              Join Community
+            </button>
+          </div>
+        </div>
+        <div class="md:w-1/2 flex justify-center">
+          <div class="planet floating" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="500"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tokenomics Section -->
+    <section id="tokenomics" class="container mx-auto py-24 px-4 relative z-10">
+      <h2 class="text-4xl font-bold mb-16 text-center cosmic-gradient">Tokenomics</h2>
+      <div class="text-center mb-8">
+        <div class="text-5xl font-bold mb-2">247M</div>
+        <div class="text-xl text-gray-400">Total Supply</div>
+      </div>
+      
+      <div class="tokenomics-grid mb-16">
+        <!-- Liquidity -->
+        <div class="cosmic-card p-6" data-tilt data-tilt-max="5">
+          <div class="token-chart">
+            <div class="token-fill bg-blue-500" style="width: 30%"></div>
+          </div>
+          <div class="font-bold text-xl mb-1">30%</div>
+          <div class="text-gray-400">Liquidity</div>
+        </div>
+        
+        <!-- Development Team -->
+        <div class="cosmic-card p-6" data-tilt data-tilt-max="5">
+          <div class="token-chart">
+            <div class="token-fill bg-purple-500" style="width: 10%"></div>
+          </div>
+          <div class="font-bold text-xl mb-1">10%</div>
+          <div class="text-gray-400">Dev Team</div>
+        </div>
+        
+        <!-- Marketing -->
+        <div class="cosmic-card p-6" data-tilt data-tilt-max="5">
+          <div class="token-chart">
+            <div class="token-fill bg-pink-500" style="width: 10%"></div>
+          </div>
+          <div class="font-bold text-xl mb-1">10%</div>
+          <div class="text-gray-400">Marketing</div>
+        </div>
+        
+        <!-- Staking Rewards -->
+        <div class="cosmic-card p-6" data-tilt data-tilt-max="5">
+          <div class="token-chart">
+            <div class="token-fill bg-green-500" style="width: 10%"></div>
+          </div>
+          <div class="font-bold text-xl mb-1">10%</div>
+          <div class="text-gray-400">Staking Rewards</div>
+        </div>
+        
+        <!-- Milestone Rewards -->
+        <div class="cosmic-card p-6" data-tilt data-tilt-max="5">
+          <div class="token-chart">
+            <div class="token-fill bg-yellow-500" style="width: 20%"></div>
+          </div>
+          <div class="font-bold text-xl mb-1">20%</div>
+          <div class="text-gray-400">Milestone Rewards</div>
+        </div>
+        
+        <!-- Airdrops -->
+        <div class="cosmic-card p-6" data-tilt data-tilt-max="5">
+          <div class="token-chart">
+            <div class="token-fill bg-red-500" style="width: 10%"></div>
+          </div>
+          <div class="font-bold text-xl mb-1">10%</div>
+          <div class="text-gray-400">Airdrops</div>
+        </div>
+        
+        <!-- CEX Listings -->
+        <div class="cosmic-card p-6" data-tilt data-tilt-max="5">
+          <div class="token-chart">
+            <div class="token-fill bg-indigo-500" style="width: 10%"></div>
+          </div>
+          <div class="font-bold text-xl mb-1">10%</div>
+          <div class="text-gray-400">CEX Listings</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Milestones Section -->
+    <section id="milestones" class="container mx-auto py-24 px-4 relative z-10">
+      <h2 class="text-4xl font-bold mb-16 text-center cosmic-gradient">Milestone Rewards</h2>
+      <p class="text-center text-gray-300 max-w-2xl mx-auto mb-12">
+        Mile Stone rewards are slow dripped over 30 days. Spaces participation rewards are sent out weekly.
+      </p>
+      
+      <div class="cosmic-card p-8 mb-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div class="p-6 text-center bg-opacity-30 bg-purple-900 rounded-lg">
+            <div class="font-bold text-2xl mb-2">$247k</div>
+            <div class="text-purple-300">0.5%</div>
+          </div>
+          
+          <div class="p-6 text-center bg-opacity-30 bg-purple-900 rounded-lg">
+            <div class="font-bold text-2xl mb-2">$2.47M</div>
+            <div class="text-purple-300">1%</div>
+          </div>
+          
+          <div class="p-6 text-center bg-opacity-30 bg-purple-900 rounded-lg">
+            <div class="font-bold text-2xl mb-2">$24.7M</div>
+            <div class="text-purple-300">5%</div>
+          </div>
+          
+          <div class="p-6 text-center bg-opacity-30 bg-purple-900 rounded-lg">
+            <div class="font-bold text-2xl mb-2">$247M</div>
+            <div class="text-purple-300">10%</div>
+          </div>
+          
+          <div class="p-6 text-center bg-opacity-30 bg-purple-900 rounded-lg">
+            <div class="font-bold text-2xl mb-2">Spaces participation</div>
+            <div class="text-purple-300">3.5%</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Additional Info -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="cosmic-card p-6">
+          <h3 class="text-2xl font-bold mb-4 cosmic-gradient">Airdrops</h3>
+          <p class="text-gray-300">
+            Airdrops to active Solana communities for marketing purposes.
+          </p>
+        </div>
+        
+        <div class="cosmic-card p-6">
+          <h3 class="text-2xl font-bold mb-4 cosmic-gradient">CEX Listings</h3>
+          <p class="text-gray-300">
+            We can get listed on Coincatch pretty quickly if we take off. 
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="container mx-auto py-24 px-4 relative z-10">
+      <div class="cosmic-card p-12 text-center">
+        <h2 class="text-4xl font-bold mb-6 cosmic-gradient">Ready for Liftoff?</h2>
+        <p class="text-xl mb-8 max-w-3xl mx-auto text-gray-300">
+          Join our community
+        </p>
+
+        <div class="space-x-6 flex justify-center mb-8">
+            <div class="icons flex gap-2">
+                <div class="icon">
+                  <a href="https://mobile.x.com/dca_universe"><img src="./assets/img/twitter.png" alt=""></a>
+                </div>
+                <div class="icon">
+                  <a href="https://mobile.x.com/dca_universe"><img src="./assets/img/telegram.png" alt=""></a>
+                </div>
+                
+              </div>
+        </div>
+        <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+          <button class="cosmic-btn px-8 py-4 rounded-full font-bold">Buy Now</button>
+          <button class="bg-transparent border border-purple-500 px-8 py-4 rounded-full font-bold hover:bg-purple-900 transition">
+            Join Community
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="container mx-auto py-12 px-4 relative z-10">
+      <div class="flex flex-col md:flex-row justify-between items-center border-t border-gray-800 pt-8">
+        <div class="text-2xl font-bold cosmic-gradient mb-4 md:mb-0">247 Space Coins</div>
+      
+      </div>
+      <div class="text-center mt-8 text-gray-500">
+        &copy; 2025 247 Space Coins. All rights reserved.
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Generate stars
+    const starsContainer = document.getElementById('stars-container');
+    const numberOfStars = 200;
+    
+    for (let i = 0; i < numberOfStars; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.animationDelay = `${Math.random() * 5}s`;
+      starsContainer.appendChild(star);
+    }
+    
+    // Generate meteors
+    function createMeteor() {
+      const meteor = document.createElement('div');
+      meteor.classList.add('meteor');
+      meteor.style.left = `${Math.random() * 100}%`;
+      meteor.style.top = `${Math.random() * 50}%`;
+      starsContainer.appendChild(meteor);
+      
+      // Animate meteor
+      setTimeout(() => {
+        meteor.style.opacity = '1';
+        meteor.style.transform = 'rotate(-45deg) translateX(200px)';
+        meteor.style.transition = 'all 1s linear';
+        
+        // Remove meteor after animation
+        setTimeout(() => {
+          meteor.remove();
+        }, 1000);
+      }, 100);
+    }
+    
+    // Create meteors periodically
+    setInterval(createMeteor, 3000);
+    
+    // Initialize tilt.js
+    VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+      max: 5,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.2,
+    });
+  </script>
+</body>
+</html>

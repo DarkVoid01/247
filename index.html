@@ -155,7 +155,7 @@
     <div id="stars-container"></div>
 
     <!-- Header -->
-    <header class="container mx-auto py-6 px-4 relative z-10">
+    <!-- <header class="container mx-auto py-6 px-4 relative z-10">
       <div class="flex justify-between items-center">
         <div class="text-3xl font-bold cosmic-gradient">247 Space Coins</div>
         <nav class="hidden md:flex space-x-6">
@@ -166,7 +166,44 @@
         </nav>
         <button class="cosmic-btn px-6 py-2 rounded-full font-bold">Join our Community</button>
       </div>
-    </header>
+    </header> -->
+
+    <!-- Header -->
+<header class="container mx-auto py-4 md:py-6 px-4 relative z-10">
+    <div class="flex justify-between items-center">
+      <div class="text-2xl md:text-3xl font-bold cosmic-gradient">247 Space Coins</div>
+      
+      <!-- Mobile menu button -->
+      <button class="md:hidden focus:outline-none" id="mobile-menu-button">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      
+      <!-- Desktop navigation -->
+      <nav class="hidden md:flex space-x-6">
+        <a href="#tokenomics" class="hover:text-purple-400 transition">Tokenomics</a>
+        <a href="#milestones" class="hover:text-purple-400 transition">Milestones</a>
+        <a href="#roadmap" class="hover:text-purple-400 transition">Roadmap</a>
+        <a href="#community" class="hover:text-purple-400 transition">Community</a>
+      </nav>
+      
+      <!-- CTA Button - hidden on small screens, visible on medium+ -->
+      <button class="hidden md:block cosmic-btn px-6 py-2 rounded-full font-bold">Join our Community</button>
+    </div>
+    
+    <!-- Mobile navigation menu - hidden by default -->
+    <div class="md:hidden hidden bg-gray-900 mt-4 rounded-lg p-4" id="mobile-menu">
+      <nav class="flex flex-col space-y-4">
+        <a href="#tokenomics" class="hover:text-purple-400 transition">Tokenomics</a>
+        <a href="#milestones" class="hover:text-purple-400 transition">Milestones</a>
+        <a href="#roadmap" class="hover:text-purple-400 transition">Roadmap</a>
+        <a href="#community" class="hover:text-purple-400 transition">Community</a>
+        <!-- CTA Button for mobile -->
+        <button class="cosmic-btn px-6 py-2 rounded-full font-bold w-full">Join our Community</button>
+      </nav>
+    </div>
+  </header>
 
     <!-- Hero Section -->
     <section class="container mx-auto py-24 px-4 relative z-10">
@@ -404,6 +441,16 @@
       speed: 400,
       glare: true,
       "max-glare": 0.2,
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      mobileMenuButton.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+      });
     });
   </script>
 </body>
